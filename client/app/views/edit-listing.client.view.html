@@ -3,27 +3,25 @@
   <div class="col-md-offset-1 col-md-10 formWrapper">
     <div class="page-header">
       <h3>Edit Listing</h3>
-      <form>
+      <form  name="listingFormEdit" class="form-horizontal" ng-submit="update(listingFormEdit.$valid)">
         <fieldset>
           <div class="form-group" show-errors>
             <label for="name">Name</label>
-            <input name="name" type="text" ng-model="name" id="name" class="form-control" placeholder="Name">
+            <input name="name" type="text" ng-model="editlisting.name" id="update-name" class="form-control" placeholder="Name" required>
+            <div ng-messages="listingFormEdit.name.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Listing name is required</p>
+            </div>
           </div>
-          <div class="form-group">
+          <div class="form-group" show-errors>
             <label for="code">Code</label>
-            <input name="code" type="text" ng-model="code" id="code" class="form-control" placeholder="Code">
+            <input name="code" type="text" ng-model="editlisting.code" id="update-code" class="form-control" placeholder="Code" required>
+            <div ng-messages="listingFormEdit.code.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Listing code is required</p>
+            </div>
           </div>
           <div class="form-group">
             <label for="address">Address</label>
-            <input name="address" type="text" ng-model="address" id="address" class="form-control" placeholder="Address">
-          </div>
-          <div class="form-group">
-            <label for="latitude">Latitude</label>
-            <input name="latitude" type="text" ng-model="latitude" id="latitude" class="form-control" placeholder="Latitude">
-          </div>
-          <div class="form-group">
-            <label for="longitude">Longitude</label>
-            <input name="longitude" type="text" ng-model="longitude" id="longitude" class="form-control" placeholder="Longitude">
+            <input name="address" type="text" ng-model="editlisting.address" id="update-address" class="form-control" placeholder="Address">
           </div>
           <div class="form-group">
             <input type="submit" class="btn btn-default">
